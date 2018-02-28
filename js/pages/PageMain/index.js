@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import R from 'ramda';
 import actions from 'redux-app-config';
 import ble from 'ble';
+import UI from 'UI';
 
 @connect(R.pick(['userInfo', 'bleStatus', 'peskInfo']), actions)
 class PageMain extends Component {
@@ -34,7 +35,8 @@ class PageMain extends Component {
           style={{ fontSize: 30, fontWeight: 'bold' }}
           onPress={() => {
             if (bleStatus.status === 'BLE_ON') {
-              this.props.navigation.navigate('scan');
+              // this.props.navigation.navigate('scan');
+              ble.connect({ ssid: 'BLE Device-ED4359', connId: 'FF12' });
             }
           }}
         >
@@ -44,45 +46,55 @@ class PageMain extends Component {
           <View
             style={{
               marginTop: 20,
+              width: UI.size.deviceWidth,
               flexDirection: 'row',
               justifyContent: 'space-around',
             }}
           >
             <TouchableOpacity
               style={{
-                height: 30,
-                width: 60,
+                height: 40,
+                width: 100,
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: 2,
                 borderWidth: 1,
                 borderColor: '#000000',
+              }}
+              onPress={() => {
+                ble.peskController.moveUp();
               }}
             >
               <Text>上升</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
-                height: 30,
-                width: 60,
+                height: 40,
+                width: 100,
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: 2,
                 borderWidth: 1,
                 borderColor: '#000000',
               }}
+              onPress={() => {
+                ble.peskController.moveStop();
+              }}
             >
               <Text>停止</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={{
-                height: 30,
-                width: 60,
+                height: 40,
+                width: 100,
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: 2,
                 borderWidth: 1,
                 borderColor: '#000000',
+              }}
+              onPress={() => {
+                ble.peskController.moveDown();
               }}
             >
               <Text>下降</Text>
