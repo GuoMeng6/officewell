@@ -52,5 +52,9 @@
 			</dict>
 		</dict>
 	</dict>
+  <key>NSCameraUsageDescription</key>
+	<string>OfficeWell is going to use the camera to scan QRcodes.</string>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>OfficeWell is going to access the photo library.</string>
 </dict>
 </plist>
