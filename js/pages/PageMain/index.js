@@ -41,8 +41,8 @@ class PageMain extends Component {
           style={{ fontSize: 30, fontWeight: 'bold' }}
           onPress={() => {
             if (bleStatus.status === 'BLE_ON') {
-              // this.props.navigation.navigate('scan');
-              ble.connect({ ssid: 'BLE Device-ED4359', connId: 'FF12' });
+              this.props.navigation.navigate('scan');
+              // ble.connect({ ssid: 'BLE Device-ED4359', connId: 'FF12' });
             }
           }}
         >
