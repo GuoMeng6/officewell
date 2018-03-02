@@ -30,7 +30,13 @@ class PageMain extends Component {
     }
 
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <Text
           style={{ fontSize: 30, fontWeight: 'bold' }}
           onPress={() => {
