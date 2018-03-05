@@ -36,16 +36,10 @@ class PageSetting extends Component {
       <View
         style={{
           flex: 1,
-          backgroundColor: '#0ff',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
-        <View
-          style={{
-            backgroundColor: '#0f0',
-            height: 44,
-            width: UI.size.deviceWidth,
-          }}
-        />
         <Text style={{ fontSize: 30, fontWeight: 'bold' }}>设置</Text>
       </View>
     );
