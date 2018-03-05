@@ -22,8 +22,8 @@ const TabNavigator1 = TabNavigator(
         backgroundColor: UI.color.bgWhite,
         height: 50,
       },
-      activeTintColor: UI.color.primary,
-      inactiveTintColor: UI.color.textGray7,
+      activeTintColor: 'blue',
+      inactiveTintColor: 'gray',
       labelStyle: {
         marginTop: 2,
         fontSize: 10,
