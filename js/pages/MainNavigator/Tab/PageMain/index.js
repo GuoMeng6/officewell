@@ -1,13 +1,35 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Platform, Image } from 'react-native';
 import { connect } from 'react-redux';
 import R from 'ramda';
 import actions from 'redux-app-config';
 import ble from 'ble';
 import UI from 'UI';
 
+const selectedImg = require('../img/peskSelected.png');
+const noSelectedImg = require('../img/peskNoSelected.png');
+
 @connect(R.pick(['userInfo', 'bleStatus', 'peskInfo']), actions)
 class PageMain extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerStyle: {
+      backgroundColor: UI.color.white,
+      height: UI.size.statusBarHeight + UI.size.navBarHeight,
+    },
+    title: '控制',
+    headerTitleStyle: {
+      marginTop: Platform.OS === 'android' ? 24 : 0,
+      fontSize: 20,
+      color: UI.color.textBlack,
+      fontWeight: 'normal',
+      alignSelf: 'center',
+    },
+    tabBarLabel: '控制',
+    tabBarIcon: ({ focused }) => (
+      <Image source={focused ? selectedImg : noSelectedImg} />
+    ),
+  });
+
   componentWillMount() {}
 
   render() {
@@ -40,10 +62,10 @@ class PageMain extends Component {
         <Text
           style={{ fontSize: 30, fontWeight: 'bold' }}
           onPress={() => {
-            if (bleStatus.status === 'BLE_ON') {
-              this.props.navigation.navigate('scan');
-              // ble.connect({ ssid: 'BLE Device-ED4359', connId: 'FF12' });
-            }
+            // if (bleStatus.status === 'BLE_ON') {
+            this.props.navigation.navigate('scan');
+            // ble.connect({ ssid: 'BLE Device-ED4359', connId: 'FF12' });
+            // }
           }}
         >
           {status}

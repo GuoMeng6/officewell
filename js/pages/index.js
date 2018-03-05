@@ -7,7 +7,7 @@ import { Easing, Animated } from 'react-native';
 
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 
-import PageMain from './PageMain';
+import MainNavigator from './MainNavigator';
 import PageQRCode from './PageQRCode';
 
 const TransitionConfiguration = () => ({
@@ -32,12 +32,12 @@ const routeParams = {
   navigationOptions: {
     gesturesEnabled: false,
   },
-  transitionConfig: TransitionConfiguration,
+  // transitionConfig: TransitionConfiguration,
 };
 
 const AppNavigator = StackNavigator(
   {
-    main: { screen: PageMain },
+    main: { screen: MainNavigator },
     scan: { screen: PageQRCode },
   },
   routeParams,
