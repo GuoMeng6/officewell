@@ -63,8 +63,8 @@ class PageMain extends Component {
           style={{ fontSize: 30, fontWeight: 'bold' }}
           onPress={() => {
             // if (bleStatus.status === 'BLE_ON') {
-            this.props.navigation.navigate('scan');
-            // ble.connect({ ssid: 'BLE Device-ED4359', connId: 'FF12' });
+            // this.props.navigation.navigate('scan');
+            ble.connect({ ssid: '7C:EC:79:ED:43:59', connId: 'FF12' });
             // }
           }}
         >
@@ -90,7 +90,7 @@ class PageMain extends Component {
                 borderColor: '#000000',
               }}
               onPress={() => {
-                ble.peskController.moveUp();
+                ble.getPeskController().moveUp();
               }}
             >
               <Text>上升</Text>
@@ -106,7 +106,7 @@ class PageMain extends Component {
                 borderColor: '#000000',
               }}
               onPress={() => {
-                ble.peskController.moveStop();
+                ble.getPeskController().moveStop();
               }}
             >
               <Text>停止</Text>
@@ -122,7 +122,7 @@ class PageMain extends Component {
                 borderColor: '#000000',
               }}
               onPress={() => {
-                ble.peskController.moveDown();
+                ble.getPeskController().moveDown();
               }}
             >
               <Text>下降</Text>
